@@ -1,8 +1,12 @@
 <%- include('./partials/head.ejs') %> <% data.forEach(post => { %>
+
 <div class="post">
 	<p class="post-date"><%= post.postDate %></p>
 	<h3 class="post-title"><%= post.postTitle %></h3>
 	<p class="post-content"><%= post.postContent %></p>
 	<p class="post-auther"><%= post.postAuther %></p>
+</div>
+<div>
+	<button type="button">Delete post</button>
 </div>
 <% }) %> <%- include('./partials/foot.ejs') %>

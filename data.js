@@ -34,7 +34,7 @@ export const data = [
 	{
 		postId: '20250809074900000',
 		postDate: '9 August 2025 at 05:49 pm',
-		postTitle: '',
+		postTitle: 'Keep learning and more sceptical about myself',
 		postContent: `After more than a half year of learning in Frontend and Backend Developer Career Path, I've made a lot of solo projects. I enjoy learning and figuring coding puzzle out. However, the more I have spend time learning, the more I realise that there are mamy more areas and topic I need to learn. this brings me to imperfect syndrome. Sometimes, I keep thinking that I have learned nothing so far.`,
 		postAuther: 'Rach to Y and T',
 	},
