@@ -1,0 +1,37 @@
+:root {
+	--isabelline: #f2f2eeff;
+	--silver: #a3a39fff;
+	--persian-red: #c13c25ff;
+	--black: #000000ff;
+	--pakistan-green: #0d4612ff;
+}
+
+* {
+	margin: 0;
+
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	min-width: 350px;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: solid 1px black;
+	padding: 1rem 1.8rem;
+}
+
+div.logo p,
+div.logo i {
+	display: inline-block;
+	line-height: 1.2;
+	vertical-align: middle;
+}
+
+ul {
+	display: flex;
+	gap: 0.5em;
+}

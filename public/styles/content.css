@@ -1,0 +1,36 @@
+/* font-family: "Roboto", sans-serif;
+font-family: "Archivo", sans-serif; */
+
+:root {
+	--isabelline: #f2f2eeff;
+	--silver: #a3a39fff;
+	--persian-red: #c13c25ff;
+	--black: #000000ff;
+	--pakistan-green: #0d4612ff;
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+	/* font-family: 'Archivo', sans-serif; */
+}
+
+a {
+	text-decoration: none;
+	color: var(--pakistan-green);
+	font-weight: 500;
+}
+
+ul {
+	list-style: none;
+}
+
+div.logo p {
+	font-size: 1.3rem;
+	font-family: 'Archivo', sans-serif;
+	font-weight: 700;
+}
+
+div.logo i {
+	color: var(--persian-red);
+	font-size: 1.5rem;
+}
