@@ -1,0 +1,17 @@
+<%- include('./partials/head.ejs') %>
+
+<div class="post">
+	<form action="/edit" method="post">
+		<input type="hidden" name="post-id" value="<%= editPost.postId  %>" />
+		<input
+			type="text"
+			name="post-title"
+			id="post-title"
+			value="<%= editPost.postTitle %>" />
+		<textarea name="post-content" id="post-content" cols="30" rows="15">
+<%= editPost.postContent %></textarea
+		>
+		<input type="submit" value="Save Change" />
+	</form>
+</div>
+<%- include('./partials/foot.ejs') %>

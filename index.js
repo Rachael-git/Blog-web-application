@@ -15,18 +15,26 @@ app.get('/addpost', (req, res) => {
 	res.render('addpost', { title: 'Add Post', clickedAdd: true })
 })
 
-app.get('/post', (req, res) => {
-	const viewPostId = req.query.id
-	const viewPost = data.filter((post) => {
-		return (post.postId = viewPostId)
-	})[0]
-
+app.get('/viewpost', (req, res) => {
+	const viewPost = getTargetedPost(req.query.id)
 	res.render('viewpost', { title: 'B;og Web', viewPost, data })
+})
+
+app.get('/editpost', (req, res) => {
+	const editPost = getTargetedPost(req.query.id)
+	res.render('editpost', { title: 'B;og Web', editPost, data })
+})
+
+app.get('/delete', (req, res) => {
+	const idToDelete = req.query.id
+	const indexToDelete = data.findIndex((post) => post.postId === idToDelete)
+	data.splice(indexToDelete, 1)
+	console.log(indexToDelete)
+	res.redirect('/')
 })
 
 app.post('/submit', (req, res) => {
 	const date = new Date()
-	// const postId = date.toISOString().replace(/[-:.TZ]/g, '')
 	const timeOption = {
 		weekday: 'long',
 		year: 'numeric',
@@ -35,18 +43,8 @@ app.post('/submit', (req, res) => {
 		hour: '2-digit',
 		minute: '2-digit',
 	}
-	// const postTime = date.toLocaleString('en-AU', timeOption)
-	// console.log(postId, postTime)
 
-	const keyMap = {
-		'post-title': 'postTitle',
-		'post-content': 'postContent',
-		'post-auther': 'postAuther',
-	}
-
-	const transformed = Object.fromEntries(
-		Object.entries(req.body).map(([key, value]) => [keyMap[key] || key, value])
-	)
+	const transformed = convertKey(req.body)
 
 	const newPost = {
 		postId: date.toISOString().replace(/[-:.TZ]/g, ''),
@@ -57,18 +55,33 @@ app.post('/submit', (req, res) => {
 	data.push(newPost)
 	res.redirect('/')
 })
+
 app.post('/edit', (req, res) => {
-	console.log(req.body)
-})
-
-
-app.post('/delete', (req, res) => {
-	const idToDelete = req.body.postId
-	const indexToDelete = data.findIndex((post) => post.postId === idToDelete)
-	data.splice(indexToDelete, 1)
-	res.redirect('/')
+	const post = convertKey(req.body)
+	const targetedPost = getTargetedPost(post.postId)
+	targetedPost.postContent = post.postContent
+	res.render('viewpost', { title: 'B;og Web', viewPost: targetedPost, data })
 })
 
 app.listen(port, () => {
 	console.log(`Server running on port:${3000}`)
 })
+
+function convertKey(body) {
+	const keyMap = {
+		'post-id': 'postId',
+		'post-title': 'postTitle',
+		'post-content': 'postContent',
+		'post-auther': 'postAuther',
+	}
+	const transformed = Object.fromEntries(
+		Object.entries(body).map(([key, value]) => [keyMap[key] || key, value])
+	)
+	return transformed
+}
+
+function getTargetedPost(id) {
+	return data.filter((post) => {
+		return post.postId === id
+	})[0]
+}
