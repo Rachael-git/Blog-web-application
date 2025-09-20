@@ -15,6 +15,15 @@ app.get('/addpost', (req, res) => {
 	res.render('addpost', { title: 'Add Post', clickedAdd: true })
 })
 
+app.get('/post', (req, res) => {
+	const viewPostId = req.query.id
+	const viewPost = data.filter((post) => {
+		return (post.postId = viewPostId)
+	})[0]
+
+	res.render('viewpost', { title: 'B;og Web', viewPost, data })
+})
+
 app.post('/submit', (req, res) => {
 	const date = new Date()
 	// const postId = date.toISOString().replace(/[-:.TZ]/g, '')
@@ -46,6 +55,17 @@ app.post('/submit', (req, res) => {
 	}
 
 	data.push(newPost)
+	res.redirect('/')
+})
+app.post('/edit', (req, res) => {
+	console.log(req.body)
+})
+
+
+app.post('/delete', (req, res) => {
+	const idToDelete = req.body.postId
+	const indexToDelete = data.findIndex((post) => post.postId === idToDelete)
+	data.splice(indexToDelete, 1)
 	res.redirect('/')
 })
 

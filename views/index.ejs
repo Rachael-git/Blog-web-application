@@ -1,12 +1,20 @@
-<%- include('./partials/head.ejs') %> <% data.forEach(post => { %>
+<%- include('./partials/head.ejs') %> 
+<% data.forEach(post => { %>
 
 <div class="post">
-	<p class="post-date"><%= post.postDate %></p>
-	<h3 class="post-title"><%= post.postTitle %></h3>
-	<p class="post-content"><%= post.postContent %></p>
-	<p class="post-auther"><%= post.postAuther %></p>
+	<a href="/post?id=<%= post.postId%>">
+		<p class="post-date"><%= post.postDate %></p>
+		<h3 class="post-title"><%= post.postTitle %></h3>
+		<p class="post-content"><%= post.postContent %></p>
+		<p class="post-auther"><%= post.postAuther %></p>
+	</a>
 </div>
+
 <div>
-	<button type="button">Delete post</button>
+	<form action="/delete" method="post">
+		<input type="hidden" name="postId" value="<%= post.postId %>" />
+		<input type="submit" value="delete" />
+	</form>
 </div>
+
 <% }) %> <%- include('./partials/foot.ejs') %>

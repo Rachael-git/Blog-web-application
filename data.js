@@ -16,14 +16,6 @@ export const data = [
 		postAuther: 'Rach to Y and T',
 	},
 	{
-		postId: '20250208100500000',
-		postDate: '8 February 2025 at 08:05 pm',
-		postTitle: 'So far So good',
-		postContent:
-			'Delenit imperdiet vim ne, nec tacimates similique ad, at erroribus accommodare ius. Unum modus aliquando id nam, est eu appetere iudicabit conceptam. An eam dicit graece, mea no invidunt qualisque, eum et paulo invenire. Eu vel zril iriure quaestio, integre phaedrum cum no, nusquam deseruisse adversarium vel in. Decore timeam tacimates ne ius, eum ad feugiat detracto.',
-		postAuther: 'Rach to Y and T',
-	},
-	{
 		postId: '20250620053900000',
 		postDate: '20 June 2025 at 03:39 pm',
 		postTitle: 'how far is close enough',
