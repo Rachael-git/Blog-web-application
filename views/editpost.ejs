@@ -1,17 +1,20 @@
 <%- include('./partials/head.ejs') %>
+	<div class="content">
+		<form action="/edit" method="post" class="edit-post-form">
+			<p class="page">Edit your post</p>
+			<input type="hidden" name="post-id" value="<%= editPost.postId  %>" />
+			<div class="post-title-group">
+				<label for="post-title">Title: </label>
+				<input type="text" name="post-title" id="post-title" value="<%= editPost.postTitle %>" />
+			</div>
+			<div class="post-content-group">
+				<label for="post-content">Content: </label>
+				<textarea name="post-content" id="post-content" cols="30" rows="15">
+<%= editPost.postContent %></textarea>
+			</div>
+			<!-- add upload image later -->
+			<input type="submit" value="Save Change" />
+		</form>
 
-<div class="post">
-	<form action="/edit" method="post">
-		<input type="hidden" name="post-id" value="<%= editPost.postId  %>" />
-		<input
-			type="text"
-			name="post-title"
-			id="post-title"
-			value="<%= editPost.postTitle %>" />
-		<textarea name="post-content" id="post-content" cols="30" rows="15">
-<%= editPost.postContent %></textarea
-		>
-		<input type="submit" value="Save Change" />
-	</form>
-</div>
-<%- include('./partials/foot.ejs') %>
+	</div>
+	<%- include('./partials/foot.ejs') %>

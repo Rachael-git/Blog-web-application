@@ -1,37 +1,249 @@
 :root {
-	--isabelline: #f2f2eeff;
-	--silver: #a3a39fff;
+	--old-gold: #d3b552ff;
 	--persian-red: #c13c25ff;
-	--black: #000000ff;
-	--pakistan-green: #0d4612ff;
+	--smoky-black: #15130fff;
+	--timberwolf: #d6d6d2ff;
+	--fern-green: #547648ff;
 }
 
 * {
 	margin: 0;
-
 	padding: 0;
 	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
+
 html,
 body {
+	margin: 0 auto;
+	flex: 0 0 auto;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+	min-height: 100vh;
+	max-width: 100%;
 	min-width: 350px;
 }
+
+p,
+a,
+label {
+	font-size: 0.9rem;
+}
+
+a {
+	text-decoration: none;
+	font-weight: 500;
+}
+
+span.red-text {
+	color: var(--persian-red);
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border: solid 1px black;
-	padding: 1rem 1.8rem;
+	padding: 1rem 2rem;
+}
+main {
+	max-width: 90%;
+	min-width: 80%;
+	margin: 0 auto;
+	flex: 1;
+}
+footer {
+	background-color: var(--fern-green);
 }
 
 div.logo p,
 div.logo i {
 	display: inline-block;
-	line-height: 1.2;
 	vertical-align: middle;
 }
 
-ul {
+div.logo p.web-name {
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--smoky-black);
+}
+
+div.logo i {
+	color: var(--old-gold);
+	font-size: 2rem;
+}
+
+nav ul {
 	display: flex;
-	gap: 0.5em;
+	gap: 1.5em;
+	list-style: none;
+}
+
+nav ul li a {
+	position: relative;
+	color: var(--smoky-black);
+	font-weight: 600;
+}
+nav ul li a:after {
+	content: '';
+	display: block;
+	margin: auto;
+	width: 0;
+	height: 3px;
+	background: transparent;
+	transition: width 300ms ease-in, background-color 500ms ease;
+}
+
+nav ul li a:hover::after {
+	width: 100%;
+	background-color: var(--persian-red);
+}
+
+span.tooltip-text {
+	display: none;
+	border-radius: 3px;
+	padding: 0.3em 0.5em;
+	z-index: 1;
+	position: absolute;
+	font-size: 0.8rem;
+	top: 100%;
+	left: 40%;
+	margin-top: 0.5em;
+	background-color: #d6d6d2ff;
+	color: var(--smoky-black);
+}
+
+main div.content {
+	padding: 1.5em 1em;
+}
+
+main div.content:not(:last-of-type) {
+	border-bottom: solid 2px var(--old-gold); /* remove when have image feature*/
+}
+
+p.post-date {
+	font-size: 0.7rem;
+}
+
+p.post-title {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 0.5em 0;
+}
+
+p.post-content {
+	line-height: 1.5;
+}
+p.post-auther {
+	margin-top: 0.8em;
+}
+
+div.menu-links {
+	margin-top: 1.5em;
+	display: flex;
+	justify-content: flex-start;
+	gap: 0.9em;
+}
+div.menu-links a {
+	font-weight: 600;
+	transition: color 0.5s;
+}
+
+div.menu-links a:visited {
+	color: inherit;
+}
+div.menu-links a:hover {
+	color: var(--persian-red);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	gap: 1em;
+	padding: 0 0 1.5em;
+	max-width: 600px;
+	margin: 0 auto;
+	/* border: solid 1px red; */
+}
+p.page {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+form div {
+	display: flex;
+	flex-direction: column;
+}
+input,
+textarea {
+	border: solid var(--timberwolf) 1px;
+	border-radius: 5px;
+	padding: 0.5em;
+}
+textarea {
+	resize: none;
+}
+input[type='submit'] {
+	color: whitesmoke;
+	font-weight: 600;
+	display: block;
+	margin: 0 auto;
+	padding: 1em 1.5em;
+	background: var(--fern-green);
+	cursor: pointer;
+}
+input[type='submit']:hover {
+	background: rgb(112, 148, 99);
+}
+
+footer {
+	padding: 2em 0;
+	text-align: center;
+	color: whitesmoke;
+}
+
+footer p.web-name {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+@media screen and (max-width: 450px) {
+	header {
+		padding: 1rem;
+	}
+	ul {
+		gap: 1em;
+	}
+	nav ul li a.home-link,
+	nav ul li a.add-link {
+		font-size: 0;
+	}
+	nav ul li a.home-link::before {
+		content: '\f015'; /* home icon*/
+		font-family: 'Font Awesome 7 Free';
+		font-weight: 400;
+		font-size: 1.3rem;
+	}
+	nav ul li a.add-link::before {
+		content: '\f0fe'; /* add icon*/
+		font-family: 'Font Awesome 7 Free';
+		font-weight: 400;
+		font-size: 1.3rem;
+	}
+	nav ul li a:after {
+		display: none;
+	}
+	nav ul li a:hover span.tooltip-text {
+		display: block;
+	}
+	nav ul li a:hover {
+		color: var(--persian-red);
+	}
+	form input[type='submit'] {
+		margin: 0;
+	}
 }

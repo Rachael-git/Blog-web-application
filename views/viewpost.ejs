@@ -1,12 +1,25 @@
 <%- include('./partials/head.ejs') %>
+	<div class="content">
+		<div class="post">
+			<!-- add imag here  -->
+			<p class="post-date">
+				<%= viewPost.postDate %>
+			</p>
+			<p class="post-title">
+				<%= viewPost.postTitle %>
+			</p>
+			<p class="post-content">
+				<%= viewPost.postContent %>
+			</p>
+			<p class="post-auther">
+				<%= viewPost.postAuther %>
+			</p>
 
-<div class="post">
-	<p class="post-date"><%= viewPost.postDate %></p>
-	<h3 class="post-title"><%= viewPost.postTitle %></h3>
-	<p class="post-content"><%= viewPost.postContent %></p>
-	<p class="post-auther"><%= viewPost.postAuther %></p>
-</div>
-<a href="/">Back</a>
-<a href="/editpost?id=<%= viewPost.postId %>">Edit</a>
-<a href="/delete?id=<%= viewPost.postId %>">Delete</a>
-<%- include('./partials/foot.ejs') %>
+			<div class="menu-links">
+				<a href="/">Back</a>
+				<a href="/editpost?id=<%= viewPost.postId %>">Edit</a>
+				<a href="/delete?id=<%= viewPost.postId %>">Delete</a>
+			</div>
+		</div>
+	</div>
+	<%- include('./partials/foot.ejs') %>

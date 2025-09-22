@@ -1,18 +1,24 @@
 <%- include('./partials/head.ejs') %>
-<form action="/submit" method="post">
-	<label for="post-title">Title: </label>
-	<input type="text" name="post-title" id="post-title" />
+	<div class="content">
+		
+		<form action="/submit" method="post" class="add-post-form">
+			<p class="page">Add your post</p>
+			<div class="post-title-group">
+				<label for="post-title">Title: </label>
+				<input type="text" name="post-title" id="post-title" />
+			</div>
+			<div class="post-content-group">
+				<label for="post-content">Content: </label>
+				<textarea name="post-content" id="post-content" cols="30" rows="15"></textarea>
+			</div>
+			<div class="post-auther-group">
+				<label for="post-auther">Auther: </label>
+				<input type="text" name="post-auther" id="post-auther" />
+			</div>
 
-	<label for="post-content">Content: </label>
-	<textarea
-		name="post-content"
-		id="post-content"
-		cols="30"
-		rows="15"></textarea>
+			<!-- add upload image later -->
+			<input type="submit" value="Submit" />
+		</form>
 
-	<label for="post-auther">Auther: </label>
-	<input type="text" name="post-auther" id="post-auther" />
-	<input type="submit" value="Submit" />
-</form>
-
-<%- include('./partials/foot.ejs') %>
+	</div>
+	<%- include('./partials/foot.ejs') %>

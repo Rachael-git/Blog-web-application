@@ -15,7 +15,6 @@
 		href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
 		rel="stylesheet" />
 	<!-- CSS -->
-	<link rel="stylesheet" href="/styles/content.css">
 	<link rel="stylesheet" href="/styles/layout.css">
 
 	<title>
@@ -24,20 +23,30 @@
 </head>
 
 <body>
+	
 	<header>
 		<div class="logo">
-			<p><i class="fa-regular fa-comment-dots"></i>B;og Web</p>
+			<p class="web-name"><i class="fa-regular fa-comment-dots"></i>B<span class="red-text">;</span>og Web</p>
 		</div>
 		<nav>
 			<ul>
-				<li><a href="/">HOME</a></li>
+				<li>
+					<a href="/" class="home-link">
+						Home
+						<span class="tooltip-text">Home</span>
+					</a>
+
+				</li>
 				<% if (!locals.clickedAdd) { %>
-					<li><a href="/addpost">ADD POST</a></li>
+					<li>
+						<a href="/addpost" class="add-link">
+							Add Post
+							<span class="tooltip-text">Add Post</span>
+						</a>
+
+					</li>
 					<% } %>
 			</ul>
 		</nav>
 	</header>
-	<main></main>
-</body>
-
-</html>
+	<main class="content">
